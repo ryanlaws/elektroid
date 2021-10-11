@@ -18,7 +18,7 @@ AM_CONDITIONAL([CLI_ONLY], [test "${CLI_ONLY}" == yes])
 
 # Checks for libraries.
 PKG_CHECK_MODULES(ALSA, alsa >= 1.1.3)
-AS_IF([CLI_ONLY], [PKG_CHECK_MODULES([GTK], [gtk+-3.0])])
+AM_COND_IF([CLI_ONLY], [PKG_CHECK_MODULES([GTK], [gtk+-3.0])])
 
 PKG_CHECK_MODULES(SNDFILE, sndfile >= 1.0.2, ac_cv_sndfile=1, ac_cv_sndfile=0)
 AC_DEFINE_UNQUOTED([HAVE_SNDFILE],${ac_cv_sndfile}, [Set to 1 if you have libsndfile.])
